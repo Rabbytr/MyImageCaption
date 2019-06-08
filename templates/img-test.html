@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- <script src="https://cdn.bootcss.com/jquery/2.1.0-beta3/jquery.min.js"></script> -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.1/cropper.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.1/cropper.min.js"></script>
+  <title>test</title>
+  <style type="text/css">
+    img {
+      max-width: 100%; /* This rule is very important, please do not ignore this! */
+    }
+  </style>
+</head>
+<body>
+  <div>
+    <img id="image" src="https://wallpapers.wallhaven.cc/wallpapers/full/wallhaven-747189.jpg">
+  </div>
+</body>
+<script type="text/javascript">
+  const image = document.getElementById('image');
+  const cropper = new Cropper(image, {
+    aspectRatio: 1 / 1
+  });
+  // data = cropper.getCroppedCanvas().toDataURL('image/png');
+</script>
+</html>

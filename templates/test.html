@@ -1,0 +1,50 @@
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"/>
+	<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+	<!-- 引入样式 -->
+	<link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+	<!-- 引入组件库 -->
+	<script src="https://unpkg.com/element-ui/lib/index.js"></script>
+	<link rel="stylesheet" href="../static/css/index.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.1/cropper.min.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.1/cropper.min.js"></script>
+	<title>Image Caption</title>
+</head>
+<body>
+	<el-container id="container">
+		<label>
+			<input id="inputbox" type="file" name="file" accept="image/gif,image/jpeg,image/x-png" @change="showPreview();" :disabled="isCropping" />
+			<div class="imgbox"
+			v-loading="loading"
+			element-loading-text="拼命上传中"
+			element-loading-spinner="el-icon-loading"
+			element-loading-background="rgba(0, 0, 0, 0.6)"
+			>
+			<img id="userimg" :src=imgurl />
+		</div>
+	</label>
+	<el-row :gutter="10">
+		<el-col :md="6"><button class="btn" @click="crop();">{{ cropBtnText }}</button></el-col>
+		<el-col :md="6"><button class="btn" @click="resetCrop();">Reset</button></el-col>
+		<el-col :md="6"><button class="btn" @click="rightR()">Right</button></el-col>
+		<el-col :md="6"><button class="btn" @click="leftR()">Left</button></el-col>
+	</el-row>
+	<input type="submit" class="btn" value="Get Image Caption!" :disabled="isSubmitting" @click="getres()" >
+	<el-popover
+	placement="top"
+	width="100%"
+	trigger="click"
+	transition="width 2s, height 2s, background-color 2s, transform 2s">
+	<h3>English translation</h3>
+	<p>{{ sentence }}</p>
+	<h3>中文翻译</h3>
+	<p>{{ sentence_ch }}</p>
+	<button slot="reference" class="btn">Result</button>
+</el-popover>
+<el-footer></el-footer>
+</el-container>
+</body>
+<script type="text/javascript" src="../static/js/index.js" ></script>
+</html>
