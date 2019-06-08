@@ -58,4 +58,4 @@ Coco数据集大都为基本的生活照图片，所以对待这种非自然艺�
 
 ####  整个神经网络模型的架构为：
 
-![](D:/desktop2019/ImgCapWeb/img/Frame.png)
+![](./img/Frame.png)
